@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="showhiddenfeatures" value="true"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="CarLR">
+			<alt mandatory="true" name="Transmission">
+				<feature name="Manual"/>
+				<alt name="Automatic">
+					<feature name="TAT"/>
+					<feature name="CVT"/>
+					<feature name="DCT"/>
+					<feature name="AMT"/>
+				</alt>
+			</alt>
+			<or mandatory="true" name="Entertainment">
+				<feature name="CD"/>
+				<feature name="Radio"/>
+			</or>
+			<and mandatory="true" name="Navigation">
+				<alt name="DigitalCards">
+					<feature name="Europe"/>
+					<feature name="USA"/>
+				</alt>
+				<feature mandatory="true" name="GPSAntenna"/>
+			</and>
+			<feature mandatory="true" name="Alarm"/>
+			<feature name="Convertible"/>
+			<feature name="Tracker"/>
+		</and>
+	</struct>
+</featureModel>

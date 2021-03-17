@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="showhiddenfeatures" value="true"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="Car">
+			<alt mandatory="true" name="Transmission">
+				<graphics key="collapsed" value="false"/>
+				<feature name="Manual"/>
+				<feature name="Automatic"/>
+			</alt>
+			<or name="Entertainment">
+				<feature name="Radio"/>
+				<feature name="CD"/>
+			</or>
+		</and>
+	</struct>
+</featureModel>

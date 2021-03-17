@@ -1,0 +1,397 @@
+Chatbot CarBot language: en 
+
+ intents:
+Greeting: 
+ inputs {
+	"Howdy", 
+	"Hi", 
+	"Hello", 
+	"Hey", 
+	"Heya", 
+	"hey there", 
+	"good morning", 
+	"good afternoon", 
+	"good evening" 
+} 
+Help: 
+ inputs {
+	"Can you help me", 
+	"I need help", 
+	"what can I do", 
+	"what can you do" 
+} 
+ConfigureIntent: 
+ inputs {
+	"Yes", 
+	"yes I want to select a configuration", 
+	"yes I would like to choose a configuration", 
+	"ys what features do you have", 
+	"yes what features are available", 
+	"yes I´d love to", 
+	"why not", 
+	"yes I do" 
+} 
+NoConfigureIntent: 
+ inputs {
+	"Thanks, but no", 
+	"No", 
+	"nah,I´m good", 
+	"not at all", 
+	"never", 
+	"no way" 
+} 
+Help_yes: 
+ inputs {
+	"Yes", 
+	"yes I´d love to", 
+	"why not", 
+	"yes I do" 
+} 
+Help_no: 
+ inputs {
+	"Thanks, but no", 
+	"No", 
+	"nah,I´m good", 
+	"not at all", 
+	"never", 
+	"no way" 
+} 
+SaveConfigIntent: 
+ inputs {
+	"download", 
+	"save" 
+} 
+SaveConfig_Yes: 
+ inputs {
+	"Yes", 
+	"yes I´d love to", 
+	"yes I do" 
+} 
+SaveConfig_No: 
+ inputs {
+	"Thanks, but no", 
+	"No" 
+} 
+QueryFeatureNoIntent: 
+ inputs {
+	"What is the total number of features?", 
+	"How many features are available?", 
+	"How many features do you have", 
+	"How many features?" 
+} 
+QueryOptionalIntent: 
+ inputs {
+	"What are the optional features?", 
+	"list the optional features", 
+	"what optional features do you have", 
+	"what features are optional" 
+} 
+QueryConfigurationIntent: 
+ inputs {
+	"What is the possible number of configuration?", 
+	"How many configurations are possible?", 
+	"How many configurations can I get?", 
+	"How many configurations?" 
+} 
+QueryCoreIntent: 
+ inputs {
+	"What are the mandatory features?", 
+	"list the core features?", 
+	"what mandatory features do you have?", 
+	"what features are automatically selected?" 
+} 
+MandatoryIntent: 
+ inputs {"Mandatory" 
+} 
+OptionalIntent: 
+ inputs {"Optional" 
+} 
+
+Select_PowerLock_yes: 
+ inputs {
+	"yes" 
+} 
+Select_PowerLock_no: 
+ inputs {
+	"no" 
+} 
+PowerLock: 
+ inputs {
+	"PowerLock", 
+	"I want PowerLock", 
+	"I´ll go with PowerLock", 
+	"Give me PowerLock" 
+} 
+Select_PowerLock: 
+ inputs {
+	("PowerLock")[PowerLock_type], 
+	"I want" ("PowerLock")[PowerLock_type], 
+	"I´ll go with" ("PowerLock")[PowerLock_type], 
+	"Give me" ("PowerLock")[PowerLock_type] 
+} 
+
+parameters: 
+PowerLock_type: entity powerlock, required, prompts ["enter PowerLock"];
+
+Select_KeylessEntry_yes: 
+ inputs {
+	"yes" 
+} 
+Select_KeylessEntry_no: 
+ inputs {
+	"no" 
+} 
+KeylessEntry: 
+ inputs {
+	"KeylessEntry", 
+	"I want KeylessEntry", 
+	"I´ll go with KeylessEntry", 
+	"Give me KeylessEntry" 
+} 
+Select_KeylessEntry: 
+ inputs {
+	("KeylessEntry")[KeylessEntry_type], 
+	"I want" ("KeylessEntry")[KeylessEntry_type], 
+	"I´ll go with" ("KeylessEntry")[KeylessEntry_type], 
+	"Give me" ("KeylessEntry")[KeylessEntry_type] 
+} 
+
+parameters: 
+KeylessEntry_type: entity keylessentry, required, prompts ["enter KeylessEntry"];
+
+Select_Entertainment_yes: 
+ inputs {
+	"yes", 
+	"yes I do" 
+} 
+Select_Entertainment_no: 
+ inputs {
+	"Thanks, but no", 
+	"no", 
+	"nah,I´m good" 
+} 
+Entertainment: 
+ inputs {
+	"I want to know the type of Entertainment that is available", 
+	"Entertainment", 
+	"See available Entertainment", 
+	"what Entertainment type is available" 
+} 
+Select_Entertainment: 
+ inputs {
+
+	("CD")[Entertainment_type], 
+	"I want" ("CD")[Entertainment_type], 
+	"I´ll go with" ("CD")[Entertainment_type], 
+	"Give me" ("CD")[Entertainment_type], 
+	("Radio")[Entertainment_type], 
+	"I want" ("Radio")[Entertainment_type], 
+	"I´ll go with" ("Radio")[Entertainment_type], 
+	"Give me" ("Radio")[Entertainment_type] 
+}  
+ 
+parameters: 
+Entertainment_type: entity entertainment, isList, required, prompts ["What type of Entertainment?"];
+
+Transmission: 
+ inputs {
+	"I want to know the type of Transmission that is available", 
+	"Transmission", 
+	"See available Transmission", 
+	"what Transmission type is available" 
+} 
+Select_Transmission: 
+ inputs {
+
+	("Manual")[Transmission_type], 
+	"I want" ("Manual")[Transmission_type], 
+	"I´ll go with" ("Manual")[Transmission_type], 
+	"Give me" ("Manual")[Transmission_type], 
+	("Automatic")[Transmission_type], 
+	"I want" ("Automatic")[Transmission_type], 
+	"I´ll go with" ("Automatic")[Transmission_type], 
+	"Give me" ("Automatic")[Transmission_type] 
+}  
+ 
+parameters: 
+Transmission_type: entity transmission, required, prompts ["What type of Transmission?"];
+
+ entities:
+Simple entity "transmission":
+ inputs in en{ 
+"Manual" synonyms "manual", " manual of arms"
+"Automatic" synonyms "automatic rifle", " automatic", " machine rifle", " automatic pistol", " automatonlike", " machinelike", " robotlike", " robotic", " reflex", " reflexive"
+}
+
+Simple entity "entertainment":
+ inputs in en{ 
+"CD" synonyms "cadmium", " Cd", " atomic number 48", " candle", " candela", " cd", " standard candle", " certificate of deposit", " CD", " compact disk", " compact disc", " four hundred", " 400"
+"Radio" synonyms "radio", " radiocommunication", " wireless", " radio receiver", " receiving set", " radio set", " tuner"
+}
+
+Simple entity "powerlock":
+ inputs in en{ 
+"PowerLock" synonyms "PowerLock"
+}
+
+Simple entity "keylessentry":
+ inputs in en{ 
+"KeylessEntry" synonyms "KeylessEntry"
+}
+
+actions:
+text response GreetingResponse: 
+ inputs {
+	"Hello there! I am here to help you with configuring your software product line. Would you like to proceed?", "Hi, welcome to SPLBot! Would you like to select a configuration?" 
+}
+ 
+text response HelpResponse: 
+ inputs {
+	"yes, I can help you with configuring your software product line. Would you like to proceed?", "I can help you with configuring your software product line. Would you like to proceed?" 
+}
+ 
+text response Help_noResponse: 
+ inputs {
+	"Thank you for using SPLBot!" 
+}
+ 
+text response NoConfigureIntentResponse: 
+ inputs {
+	"Thank you for using SPLBot!" 
+}
+ 
+text response SaveConfigResponse: 
+ inputs {
+	"You are done with your configuration. Would like to save the configuration?", "save the configuration?", "view the configuration?" 
+}
+ 
+text response ConfigureResponse: 
+ inputs {
+ "Great! 
+Please note that the "Root" and "Core features" are automatically selected, but you will have the liberty to select from the optional features. 
+"
+ } 
+
+text response QueryNoOfFeatResponse: 
+ inputs {
+ "There are 9 features in the feature model"
+}
+
+text response QueryCoreFeatResponse: 
+ inputs {
+ "The following features are automatically selected: Car, Transmission"
+}
+
+text response QueryOptFeatResponse: 
+ inputs {
+ "You can select any of these Optional Features: KeylessEntry, Entertainment, PowerLock"
+}
+
+text response QueryConfigurationResponse: 
+ inputs {
+ "There are 24 possible configurations.
+ The possible solutions are: [Car, Transmission, Manual], [Entertainment, Car, Transmission, Manual, Radio], [Entertainment, Car, Transmission, Manual, Radio, PowerLock], [Car, Transmission, Manual, PowerLock], [KeylessEntry, Car, Transmission, Manual, PowerLock], [KeylessEntry, Entertainment, Car, Transmission, Manual, Radio, PowerLock], [Entertainment, Car, Transmission, Radio, PowerLock, Automatic], [Car, Transmission, Automatic], [Entertainment, Car, Transmission, Radio, Automatic], [KeylessEntry, Entertainment, Car, Transmission, Radio, PowerLock, Automatic], [Car, Transmission, PowerLock, Automatic], [KeylessEntry, Car, Transmission, PowerLock, Automatic], [CD, Entertainment, Car, Transmission, Radio, PowerLock, Automatic], [CD, Entertainment, Car, Transmission, Manual], [CD, Entertainment, Car, Transmission, Manual, Radio], [CD, Entertainment, Car, Transmission, Manual, PowerLock], [CD, KeylessEntry, Entertainment, Car, Transmission, Manual, PowerLock], [CD, Entertainment, Car, Transmission, Manual, Radio, PowerLock], [CD, KeylessEntry, Entertainment, Car, Transmission, Manual, Radio, PowerLock], [CD, Entertainment, Car, Transmission, Automatic], [CD, Entertainment, Car, Transmission, Radio, Automatic], [CD, Entertainment, Car, Transmission, PowerLock, Automatic], [CD, KeylessEntry, Entertainment, Car, Transmission, PowerLock, Automatic], [CD, KeylessEntry, Entertainment, Car, Transmission, Radio, PowerLock, Automatic]"
+}
+
+text response CoreFeatSelectResponse: 
+ inputs {
+ "You have to configure the Feature(s): 
+
+	Transmission
+"}
+
+text response OptSelectResponse: 
+ inputs {
+ "Please enter name to select any of these Optional Features: KeylessEntry, Entertainment, PowerLock"
+}
+
+text response Type: 
+ inputs {
+ "Enter (mandatory or optional) to begin"
+}
+
+text response TransmissionResponse: 
+ inputs {
+ "Selected feature: "
+ ["Select_Transmission.Transmission_type"]
+}
+
+text response TransmissionType:
+ inputs{ 
+"You have to configure Transmission. Please you can only select one of the following features:
+Manual, Automatic
+"
+ } 
+text response EntertainmentResponse: 
+ inputs {
+ "Selected feature: "
+ ["Select_Entertainment.Entertainment_type"]
+}
+
+text response EntertainmentType:
+ inputs{ 
+"You can choose one or more of the following features:
+CD, Radio
+"
+ } 
+text response PowerLockPrompt: 
+ inputs {
+ "enter PowerLock to select"
+}
+ 
+text response PowerLockResponse: 
+ inputs {
+ "Selected feature: "
+ ["Select_PowerLock.PowerLock_type"] 
+} 
+
+text response KeylessEntryPrompt: 
+ inputs {
+ "enter KeylessEntry to select"
+}
+ 
+text response KeylessEntryResponse: 
+ inputs {
+ "Selected feature: "
+ ["Select_KeylessEntry.KeylessEntry_type"] 
+} 
+
+flows:
+- user Greeting => chatbot GreetingResponse{ 
+ => user ConfigureIntent => chatbot ConfigureResponse, QueryCoreFeatResponse,Type{
+
+	=>  user MandatoryIntent => chatbot CoreFeatSelectResponse
+{
+	=> user Transmission  => chatbot TransmissionType{ 
+	=> user "Select_Transmission" => chatbot TransmissionResponse;
+	};
+
+};
+	=>  user OptionalIntent => chatbot OptSelectResponse
+{
+	=> user Entertainment  => chatbot EntertainmentType{ 
+	=> user "Select_Entertainment" => chatbot EntertainmentResponse;
+	};
+=> user "Select_PowerLock"  => chatbot PowerLockResponse;
+=> user "Select_KeylessEntry"  => chatbot KeylessEntryResponse;
+
+};
+
+};
+=> user NoConfigureIntent => chatbot NoConfigureIntentResponse;
+
+};
+- user Help => chatbot HelpResponse{ 
+=> user Help_yes => chatbot ConfigureResponse;
+=> user Help_no => chatbot Help_noResponse;
+
+}; 
+ 
+- user "QueryFeatureNoIntent" => chatbot QueryNoOfFeatResponse;
+
+- user "QueryOptionalIntent" => chatbot QueryOptFeatResponse;
+
+- user QueryCoreIntent => chatbot QueryCoreFeatResponse;
+
+- user QueryConfigurationIntent => chatbot QueryConfigurationResponse;
+
