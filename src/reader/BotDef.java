@@ -77,7 +77,7 @@ public class BotDef {
 		//pass file to Bot generator
 
 		//		BotPlatformStandAlone generator = BotPlatformStandAlone.getBotPlatformStandAlone();
-		//		generator.runGenerator("/Users/usuario/Documents/eclipse4/DemoSPLBot/"+outName, "src-gen");
+		//		generator.runGenerator("/Users/usuario/Documents/eclipse4/DemoSPLBot1/"+outName, "src-gen");
 		//	
 		//	
 	}
@@ -1762,7 +1762,7 @@ public class BotDef {
 
 	public static String printSynonymn() {
 		String listSynonymns;
-		System.setProperty("wordnet.database.dir", "/Users/usuario/Documents/eclipse4/DemoSPLBots/src/dict");
+		System.setProperty("wordnet.database.dir", "/Users/usuario/Documents/eclipse4/DemoSPLBots1/src/dict");
 		WordNetDatabase wordNetDatabase = WordNetDatabase.getFileInstance();
 		ArrayList<String> synonyms=new ArrayList<String>();
 		String wordForm = name;
